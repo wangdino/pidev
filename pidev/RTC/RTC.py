@@ -44,3 +44,4 @@ class RTC:
         curr_time_str = '-'.join([year, month, day])\
                         + ' ' + WEEKDAYS[weekday-1] + ' '\
                         + ':'.join([hh, mm, ss])
+        return curr_time_str
