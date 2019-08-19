@@ -40,7 +40,7 @@ class RTC:
         weekday = curr_time[3] & 0x07
         day = curr_time[4] & 0x3F
         month = curr_time[5] & 0x1F
-        year = curr_time[6]
+        year = curr_time[6] & 0xFF
         curr_time_str = '-'.join([year, month, day])\
                         + ' ' + WEEKDAYS[weekday-1] + ' '\
                         + ':'.join([hh, mm, ss])
