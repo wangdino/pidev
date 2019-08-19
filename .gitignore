@@ -105,3 +105,6 @@ venv.bak/
 
 # PyCharm
 .idea
+
+# Local Test File
+localtest.py
