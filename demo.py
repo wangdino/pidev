@@ -9,4 +9,5 @@ print('Checking time:')
 i = 0
 for i in range(5):
     print(rtc.get_datetime(output_obj=False))
+    time.sleep(1)
     i += 1
