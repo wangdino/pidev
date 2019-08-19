@@ -61,10 +61,12 @@ class Clock:
 
     def set_datetime(self, user_input=None):
         if user_input is None:
-            set_time = self.get_sys_time()
+            user_input = self.get_sys_time()
+            set_time = self.rtc_encode(user_input)
             self.bus.write_i2c_block_data(self.addr, self.reg, set_time)
         else:
-            set_time = self.construct_sys_time(user_input)
+            user_input = self.construct_sys_time(user_input)
+            set_time = self.rtc_encode(user_input)
             self.bus.write_i2c_block_data(self.addr, self.reg, set_time)
         return
 
