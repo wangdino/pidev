@@ -17,7 +17,7 @@ SECOND_MASK = 0x7F
 WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
 
-class Clock:
+class DS3231:
 
     def __init__(self):
         self.addr = ADDRESS
