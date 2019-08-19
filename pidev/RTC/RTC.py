@@ -41,7 +41,8 @@ class Clock:
         day = curr_time[4] & 0x3F
         month = curr_time[5] & 0x1F
         year = curr_time[6] & 0xFF
-        curr_time_str = '-'.join((year, month, day))\
-                        + ' ' + WEEKDAYS[weekday-1] + ' '\
-                        + ':'.join((hh, mm, ss))
+        date_str = str(year) + '-' + str(month) + '-' + str(day)
+        weekday_str = WEEKDAYS[weekday-1]
+        time_str = str(hh) + ':' + str(mm) + ':' + str(ss)
+        curr_time_str = ' '.join((date_str, weekday_str, time_str))
         return curr_time_str
