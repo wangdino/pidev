@@ -6,6 +6,7 @@ import datetime
 
 ADDRESS = 0x68
 REGISTER = 0x00
+BYTES = 7
 BUS = smbus.SMBus(1)
 
 WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -16,6 +17,7 @@ class Clock:
     def __init__(self):
         self.addr = ADDRESS
         self.reg = REGISTER
+        self.bytes = BYTES
         self.bus = BUS
         self.now = datetime.datetime.now()
         self.weekday = datetime.datetime.now().isoweekday()
@@ -71,7 +73,7 @@ class Clock:
         return
 
     def get_datetime(self, output_obj=True):
-        curr_time_raw = self.bus.read_i2c_block_data(self.addr, self.reg, 7)
+        curr_time_raw = self.bus.read_i2c_block_data(self.addr, self.reg, self.bytes)
         curr_time = self.rtc_decode(curr_time_raw)
         if output_obj is True:
             return curr_time
