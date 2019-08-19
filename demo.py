@@ -28,6 +28,17 @@ def test_screen():
     import spidev
     from PIL import Image, ImageDraw, ImageFont
     oled = pidev.Screen.SSD1306(19, 16, spidev.SpiDev(0, 0))
+    oled.begin()
+    oled.clear()
+    oled.display()
+    image = Image.new('1', (128, 64))
+    draw = ImageDraw.Draw(image)
+    draw.rectangle((0, 0, 128, 64), outline=0, fill=0)
+    font = ImageFont.load_default()
+    draw.text((2, 2), 'Hello', font=font, fill=255)
+    draw.text((2, 22), 'World!', font=font, fill=255)
+    oled.image(image)
+    oled.display()
     return
 
 
