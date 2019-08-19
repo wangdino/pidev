@@ -11,7 +11,7 @@ BUS = smbus.SMBus(1)
 WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
 
-class RTC:
+class Clock:
 
     def __init__(self):
         self.addr = ADDRESS
