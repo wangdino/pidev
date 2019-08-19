@@ -1,7 +1,7 @@
 import time
-import pidev.RTC.RTC as rtc
+import pidev.RTC
 
-clk = rtc.DS3231()
+clk = pidev.RTC.DS3231()
 
 print('Setting time to 2013-02-15 16:30:59 ...')
 clk.set_datetime(user_input=[2013, 2, 15, 16, 30, 59])
