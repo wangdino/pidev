@@ -33,7 +33,7 @@ def test_screen():
     oled.display()
     image = Image.new('1', (128, 64))
     draw = ImageDraw.Draw(image)
-    draw.rectangle((0, 0, 128, 64), outline=0, fill=0)
+    draw.rectangle((0, 0, 128, 64), outline=1, fill=0)
     font = ImageFont.load_default()
     draw.text((2, 2), 'Hello', font=font, fill=255)
     draw.text((2, 22), 'World!', font=font, fill=255)
