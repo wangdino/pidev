@@ -26,6 +26,7 @@ def test_clock():
 def test_screen():
     import pidev.Screen
     import spidev
+    import PIL
     from PIL import Image, ImageDraw, ImageFont
     oled = pidev.Screen.SSD1306(19, 16, spidev.SpiDev(0, 0))
     return
