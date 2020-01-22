@@ -159,9 +159,9 @@ class SSD1306(object):
 		"""Adjusts contrast to dim the display if dim is True, 
 		otherwise sets the contrast to normal brightness if dim is False."""
 		# Assume dim display.
-        contrast = 0
+		contrast = 0
 		# Adjust contrast based on VCC if not dimming.
-        if not dim:
+		if not dim:
 			if self._vccstate == SSD1306_EXTERNALVCC:
 				contrast = 0x9F
 			else:
