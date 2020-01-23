@@ -57,12 +57,12 @@ def adc_show():
     font_value = ImageFont.truetype('fonts/RobotoMono-Regular.ttf', size=24)
     screen_fixed = Image.new('1', (128, 64))
     draw_fixed = ImageDraw.Draw(screen_fixed)
-    draw_fixed.rectangle((0, 0, 127, 15), outline=1, fill=0)
-    draw_fixed.rectangle((0, 16, 127, 63), outline=1, fill=0)
+    # draw_fixed.rectangle((0, 0, 127, 15), outline=1, fill=0)
+    # draw_fixed.rectangle((0, 16, 127, 63), outline=1, fill=0)
     draw_fixed.text((5, 2), 'Raw Voltage', font=font_title, fill=255)
     signal = pidev.ADC.Signal('AIN0')
     while True:
-        value = signal.measure()
+        value = signal.measure() * 2  # half of 2kOhm circuit
         screen_update = Image.new('1', (126, 46))
         screen_fixed.paste(screen_update, (1, 17))
         draw_update = ImageDraw.Draw(screen_update)
