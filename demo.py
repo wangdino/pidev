@@ -58,7 +58,7 @@ def adc_show():
     signal = pidev.ADC.Signal('AIN0')
     while True:
         value = signal.measure()
-        draw.text((2, 18), str(value), font=font, fill=255)
+        draw.text((2, 18), '{:.3f}'.format(value), font=font, fill=255)
         oled.image(image)
         oled.display()
         time.sleep(1)
