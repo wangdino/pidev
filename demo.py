@@ -43,8 +43,29 @@ def test_screen():
     return
 
 
+def adc_show():
+    import spidev
+    import pidev.Screen
+    import pidev.ADC
+    from PIL import Image, ImageDraw, ImageFont
+    oled = pidev.Screen.SSD1306(19, 16, spidev.SpiDev(0, 0))
+    oled.begin()
+    oled.clear()
+    oled.display()
+    image = Image.new('1', (128, 64))
+    draw = ImageDraw.Draw(image)
+    font = ImageFont.load_default()
+    signal = pidev.ADC.Signal('AIN0')
+    while True:
+        value = signal.measure()
+        draw.text((2, 18), str(value), font=font, fill=255)
+        oled.image(image)
+        oled.display()
+        time.sleep(1)
+
+
 def main():
-    test_screen()
+    adc_show()
     return
 
 
