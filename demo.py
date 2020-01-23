@@ -61,6 +61,7 @@ def adc_show():
         draw.text((2, 18), '{:.3f}'.format(value), font=font, fill=255)
         oled.image(image)
         oled.display()
+        print('{:.3f}'.format(value))
         time.sleep(1)
 
 
